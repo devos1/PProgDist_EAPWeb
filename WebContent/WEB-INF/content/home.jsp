@@ -9,5 +9,6 @@
 </head>
 <body>
 	<h1><s:property value="mainTitle"/></h1>
+	<a href="<s:url action="list-cat-vehicules"/>"> Liste des catégories de véhicules</a>
 </body>
 </html>
