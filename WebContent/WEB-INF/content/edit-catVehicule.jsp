@@ -44,31 +44,33 @@
 					</div>
 				</div>
 
-				<h1>Liste des catégories de véhicules</h1>
-				<table class="table table-stripped">
-					<tr>
-						<th class="text-center">Id</th>
-						<th class="text-center">Nom</th>
-						<th class="text-center">Prix unitaire</th>
-						<th class="text-center">Prix par km</th>
-						<th class="text-center">Unité</th>
-						<th></th>
-					</tr>
-					<s:iterator value="catVehicules">
-						<tr>
-							<td><s:property value="Id" /></td>
-							<td><s:property value="nomCategorie" /></td>
-							<td><s:property value="prixUnitaire" /></td>
-							<td><s:property value="prixKM" /></td>
-							<td><s:property value="unite" /></td>
-							<td><s:url action="edit-cat-vehicule" var="urlText">
-									<s:param name="catVehiculeId">
-										<s:property value="id" />
-									</s:param>
-								</s:url> <a href="<s:property value="urlText" />">Edit</a></td>
-						</tr>
-					</s:iterator>
-				</table>
+				<h1>Catégories des véhicules</h1>
+				<div class="col-xs-6 center-block" style="float: none;">
+					<s:form action="edit-catVehicule" class="form-horizontal">
+						<s:hidden name="categorieVehicule.id" />
+						<div class="form-group">
+							<s:textfield label="Nom de la catégorie"
+								name="categorieVehicule.nomCategorie" class="form-control"
+								style="color:black;" id="nomCategorie" />
+						</div>
+						<div class="form-group">
+							<s:textfield label="Prix unitaire"
+								name="categorieVehicule.prixUnitaire" class="form-control"
+								style="color:black;" id="prixUnitaire" />
+						</div>
+						<div class="form-group">
+							<s:textfield label="Prix par km" name="categorieVehicule.prixKM"
+								class="form-control" style="color:black;" id="prixKM" />
+						</div>
+						<div class="form-group">
+							<s:textfield label="Unité" name="categorieVehicule.unite"
+								class="form-control" style="color:black;" id="unite" />
+						</div>
+						<div class="form-group">
+							<s:submit value="Envoyer" name="submit" style="color:black;" />
+						</div>
+					</s:form>
+				</div>
 
 				<div class="mastfoot">
 					<div class="inner">
