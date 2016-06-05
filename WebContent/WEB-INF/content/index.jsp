@@ -34,31 +34,18 @@
               <h3 class="masthead-brand">MobiOsLo</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li> <a href="./">Home</a></li>
-                  <li class="active"><a href="<s:url action="list-cat-vehicules"/>">Catégories véhicules</a></li>
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="<s:url action="list-cat-vehicules"/>">Catégories véhicules</a></li>
                   <li><a href="#">Contact</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
-		<h1>Liste des catégories de véhicules</h1>
-		<table class="table table-stripped">
-			<tr>
-				<th class="text-center">Nom</th>
-				<th class="text-center">Prix unitaire</th>
-				<th class="text-center">Prix par km</th>
-				<th class="text-center">Unité</th>
-			</tr>
-		<s:iterator value="catVehicules">
-			<tr>
-				<td><s:property value="nomCategorie" /></td>
-				<td><s:property value="prixUnitaire" /></td>
-				<td><s:property value="prixKM" /></td>
-				<td><s:property value="unite" /></td>
-			</tr>
-		</s:iterator>
-	</table>
+          <div class="inner cover">
+            <h1 class="cover-heading">Bienvenue sur le site de la mobilité 2.0</h1>
+            <p class="lead">Louez au lieu d'acheter et faites des économies</p>
+          </div>
 
           <div class="mastfoot">
             <div class="inner">
