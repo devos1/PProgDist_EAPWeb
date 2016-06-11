@@ -67,7 +67,7 @@
 								</div>
 								<div class="form-group">
 									<s:select label="Unité" name="categorieVehicule.Unite"
-										list="@entities.Unite@values()" cssClass="form-control"
+										list="@entities.EnumUnite@values()" cssClass="form-control"
 										id="unite" />
 								</div>
 								<div class="form-group">
