@@ -21,14 +21,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
-<!-- Source du theme : http://getbootstrap.com ; créateur : https://twitter.com/mdo @mdo -->
 <body>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
 
 			<div class="cover-container">
-
 				<div class="masthead clearfix">
 					<div class="inner">
 						<h3 class="masthead-brand">MobiOsLo</h3>
@@ -44,32 +41,41 @@
 					</div>
 				</div>
 
-				<h1>Catégories des véhicules</h1>
-				<div class="col-xs-6 center-block" style="float: none;">
-					<s:form action="edit-catVehicule" class="form-horizontal">
-						<s:hidden name="categorieVehicule.id" />
-						<div class="form-group">
-							<s:textfield label="Nom de la catégorie"
-								name="categorieVehicule.nomCategorie" class="form-control"
-								style="color:black;" id="nomCategorie" />
-						</div>
-						<div class="form-group">
-							<s:textfield label="Prix unitaire"
-								name="categorieVehicule.prixUnitaire" class="form-control"
-								style="color:black;" id="prixUnitaire" />
-						</div>
-						<div class="form-group">
-							<s:textfield label="Prix par km" name="categorieVehicule.prixKM"
-								class="form-control" style="color:black;" id="prixKM" />
-						</div>
-						<div class="form-group">
-							<s:textfield label="Unité" name="categorieVehicule.unite"
-								class="form-control" style="color:black;" id="unite" />
-						</div>
-						<div class="form-group">
-							<s:submit value="Envoyer" name="submit" style="color:black;" />
-						</div>
-					</s:form>
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Catégories des véhicules</h1>
+					</div>
+				</div>
+				<div class="row" style="text-align: right;">
+					<div class="col-md-12">
+							<s:form action="save-cat-vehicule" class="form-horizontal" style="margin: 0 auto; width: 50%">
+								<s:hidden name="categorieVehicule.id" />
+								<div class="form-group">
+									<s:textfield label="Nom de la catégorie"
+										name="categorieVehicule.nomCategorie" cssClass="form-control"
+										style="color:black;" id="nomCategorie" />
+								</div>
+								<div class="form-group">
+									<s:textfield label="Prix unitaire"
+										name="categorieVehicule.prixUnitaire" cssClass="form-control"
+										style="color:black;" id="prixUnitaire" />
+								</div>
+								<div class="form-group">
+									<s:textfield label="Prix par km"
+										name="categorieVehicule.prixKM" cssClass="form-control"
+										style="color:black;" id="prixKM" />
+								</div>
+								<div class="form-group">
+									<s:select label="Unité" name="categorieVehicule.Unite"
+										list="@entities.Unite@values()" cssClass="form-control"
+										id="unite" />
+								</div>
+								<div class="form-group">
+									<s:submit value="Envoyer" name="submit"
+										cssClass="btn btn-success" />
+								</div>
+							</s:form>
+					</div>
 				</div>
 
 				<div class="mastfoot">

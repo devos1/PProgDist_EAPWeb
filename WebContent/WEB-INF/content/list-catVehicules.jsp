@@ -21,8 +21,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
-<!-- Source du theme : http://getbootstrap.com ; créateur : https://twitter.com/mdo @mdo -->
 <body>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -35,9 +33,7 @@
 						<nav>
 						<ul class="nav masthead-nav">
 							<li><a href="./">Home</a></li>
-							<li class="active"><a
-								href="<s:url action="list-cat-vehicules"/>">Catégories
-									véhicules</a></li>
+							<li class="active"><a href="<s:url action="list-cat-vehicules"/>">Catégories véhicules</a></li>
 							<li><a href="#">Contact</a></li>
 						</ul>
 						</nav>
@@ -45,6 +41,7 @@
 				</div>
 
 				<h1>Liste des catégories de véhicules</h1>
+				<a class="btn btn-success btn-sm" style="margin-bottom: 5px;" href="<s:url action="edit-cat-vehicule"/>"> Ajouter une catégorie</a>
 				<table class="table table-stripped">
 					<tr>
 						<th class="text-center">Id</th>
@@ -52,6 +49,7 @@
 						<th class="text-center">Prix unitaire</th>
 						<th class="text-center">Prix par km</th>
 						<th class="text-center">Unité</th>
+						<th></th>
 						<th></th>
 					</tr>
 					<s:iterator value="catVehicules">
@@ -65,8 +63,14 @@
 									<s:param name="catVehiculeId">
 										<s:property value="id" />
 									</s:param>
-								</s:url> <a href="<s:property value="urlText" />">Edit</a></td>
-						</tr>
+								</s:url> <a class="btn btn-success btn-xs btn-block" href="<s:property value="urlText" />">Edit</a>
+							</td>
+							<td><s:url action="delete-cat-vehicule" var="urlText2">
+									<s:param name="catVehiculeId">
+										<s:property value="id" />
+									</s:param>							
+								</s:url> <a class="btn btn-danger btn-xs btn-block" href="<s:property value="urlText2"/>">Effacer</a>
+							</td>
 					</s:iterator>
 				</table>
 

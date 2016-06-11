@@ -3,36 +3,25 @@ package mobiOsLo.actions;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts2.convention.annotation.Result;
-import org.apache.struts2.interceptor.ServletRequestAware;
-
+import org.apache.struts2.convention.annotation.Results;
 import com.opensymphony.xwork2.ActionSupport;
-
 import entities.CategorieVehicule;
 import session.IMobiOsLo;
 import session.PersistException;
 
+@Results({ @Result(name = "success", type = "chain", location = "list-cat-vehicules"),
+	@Result(name="input", location="edit-catVehicule.jsp") })
 @SuppressWarnings("serial")
-@Result(name="success", location="edit-catVehicule.jsp")
-public class EditCatVehiculeAction extends ActionSupport implements ServletRequestAware {
+public class SaveCatVehiculeAction extends ActionSupport {
 	
 	private CategorieVehicule categorieVehicule;
-	private HttpServletRequest request;
-	
-	@Override
-	public String execute() {
+
+	public String execute(){
 		try {
 			Context ctx = new InitialContext();
 			IMobiOsLo service = (IMobiOsLo) ctx.lookup("java:global/PProgDist_EAP/PProgDist_EAPEJB/MobiOsLoService!session.IMobiOsLo");
-			String cvId = request.getParameter("catVehiculeId");
-			if (cvId == null) {
-				categorieVehicule = new CategorieVehicule();
-			}else {
-				categorieVehicule = service.getCatVehicule(Integer.parseInt(cvId));
-				
-			}
+			service.addCatVehicule(categorieVehicule);
 		} catch (PersistException pe) {
 			pe.printStackTrace();
 		} catch (NamingException ne) {
@@ -47,10 +36,5 @@ public class EditCatVehiculeAction extends ActionSupport implements ServletReque
 
 	public void setCategorieVehicule(CategorieVehicule categorieVehicule) {
 		this.categorieVehicule = categorieVehicule;
-	}
-
-	@Override
-	public void setServletRequest(HttpServletRequest request) {
-		this.request = request;	
 	}
 }
