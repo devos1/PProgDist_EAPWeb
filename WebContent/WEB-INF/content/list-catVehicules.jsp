@@ -33,6 +33,7 @@
 						<nav>
 						<ul class="nav masthead-nav">
 							<li><a href="./">Home</a></li>
+							<li><a href="<s:url action="list-stations"/>">Stations</a></li>
 							<li class="active"><a href="<s:url action="list-cat-vehicules"/>">Catégories véhicules</a></li>
 							<li><a href="#">Contact</a></li>
 						</ul>
@@ -44,7 +45,6 @@
 				<a class="btn btn-success btn-sm" style="margin-bottom: 5px;" href="<s:url action="edit-cat-vehicule"/>"> Ajouter une catégorie</a>
 				<table class="table table-stripped">
 					<tr>
-						<th class="text-center">Id</th>
 						<th class="text-center">Nom</th>
 						<th class="text-center">Prix unitaire</th>
 						<th class="text-center">Prix par km</th>
@@ -54,7 +54,6 @@
 					</tr>
 					<s:iterator value="catVehicules">
 						<tr>
-							<td><s:property value="Id" /></td>
 							<td><s:property value="nomCategorie" /></td>
 							<td><s:property value="prixUnitaire" /></td>
 							<td><s:property value="prixKM" /></td>

@@ -31,21 +31,50 @@
 					<div class="inner">
 						<h3 class="masthead-brand">MobiOsLo</h3>
 						<nav>
-							<ul class="nav masthead-nav">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="<s:url action="list-stations"/>">Stations</a></li>
-								<li><a href="<s:url action="list-cat-vehicules"/>">Catégories véhicules</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
+						<ul class="nav masthead-nav">
+							<li><a href="./">Home</a></li>
+							<li class="active"><a href="<s:url action="list-stations"/>">Stations</a></li>
+							<li><a href="<s:url action="list-cat-vehicules"/>">Catégories
+									véhicules</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
 						</nav>
 					</div>
 				</div>
 
-				<div class="inner cover">
-					<h1 class="cover-heading">Bienvenue sur le site de la mobilité
-						2.0</h1>
-					<p class="lead">Louez au lieu d'acheter et faites des économies</p>
-				</div>
+				<h1>Liste des stations</h1>
+				<%--<a class="btn btn-success btn-sm" style="margin-bottom: 5px;" href="<s:url action="edit-cat-vehicule"/>"> Ajouter une station</a> --%>
+										
+				<table class="table table-stripped">
+					<tr>
+						<th class="text-center">Nom</th>
+						<th class="text-center">Pays</th>
+						<th class="text-center">Ville</th>
+						<th class="text-center">Autos diponibles</th>
+						<th class="text-center">Vélos disponibles</th>
+						<th class="text-center">Places libres</th>
+						<th></th>
+						<th></th>
+					</tr>
+					<s:iterator value="stations">
+						<tr>
+							<td><s:property value="nom" /></td>
+							<td><s:property value="pays" /></td>
+							<td><s:property value="ville" /></td>
+							<td><s:property value="NbAutosDispos" /></td>
+							<td><s:property value="NbVelosDispo" /></td>
+							<td><s:property value="placesLibres" /></td>
+							<td><s:url action="gerer-location" var="urlText">
+									<s:param name="action" value="'louer'"/>
+								</s:url> <a class="btn btn-success btn-xs btn-block"
+								href="<s:property value="urlText" />">Louer</a></td>
+							<td><s:url action="gerer-location" var="urlText2">
+									<s:param name="action" value="'rendre'"/>
+								</s:url> <a class="btn btn-info btn-xs btn-block"
+								href="<s:property value="urlText2"/>">Rendre</a></td>
+						</tr>
+					</s:iterator>
+				</table>
 
 				<div class="mastfoot">
 					<div class="inner">

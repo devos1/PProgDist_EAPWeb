@@ -30,8 +30,7 @@ public class EditCatVehiculeAction extends ActionSupport implements ServletReque
 			if (cvId == null) {
 				categorieVehicule = new CategorieVehicule();
 			}else {
-				categorieVehicule = service.getCatVehicule(Integer.parseInt(cvId));
-				
+				categorieVehicule = service.getCatVehicule(Integer.parseInt(cvId));			
 			}
 		} catch (PersistException pe) {
 			pe.printStackTrace();

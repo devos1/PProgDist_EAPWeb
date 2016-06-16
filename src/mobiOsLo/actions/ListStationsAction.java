@@ -10,32 +10,37 @@ import session.*;
 import entities.*;
 
 @SuppressWarnings("serial")
-@Result(name="success", location="list-catVehicules.jsp")
-public class ListCatVehiculesAction extends ActionSupport {
+@Result(name="success", location="list-stations.jsp")
+public class ListStationsAction extends ActionSupport{
+		
+	List<Station> stations;
+
+	public List<Station> getStations() {
+		return stations;
+	}
+
+	public void setStations(List<Station> stations) {
+		this.stations = stations;
+	}
 	
-	List<CategorieVehicule> catVehicules;
-
-	public List<CategorieVehicule> getCatVehicules() {
-		return catVehicules;
-	}
-
-	public void setCatVehicules(List<CategorieVehicule> catVehicules) {
-		this.catVehicules = catVehicules;
-	}
 	
 	@Override
 	public String execute() throws Exception {
-		//System.out.println("OK Arrivé");
 		try {
 			Context ctx = new InitialContext();
 			IMobiOsLo service = (IMobiOsLo) ctx.lookup("java:global/PProgDist_EAP/PProgDist_EAPEJB/MobiOsLoService!session.IMobiOsLo");
-			catVehicules = service.getCatVehicules();
-		}catch (PersistException pe){ 
+			stations = service.getStations();
+			if (stations != null) {
+				for (Station station : stations) {			
+					station.setNbAutosDispos(station.cptVehiculesLibres(EnumTypePlace.Voiture));
+					station.setPlacesLibres(station.cptPlacesLibres(EnumTypePlace.Voiture));
+				}
+			}
+		} catch (PersistException pe) {
 			pe.printStackTrace();
-		}catch (NamingException ne){
+		} catch (NamingException ne){
 			ne.printStackTrace();
 		}
 		return SUCCESS;
 	}
-	
 }
