@@ -37,4 +37,19 @@ public class SaveCatVehiculeAction extends ActionSupport {
 	public void setCategorieVehicule(CategorieVehicule categorieVehicule) {
 		this.categorieVehicule = categorieVehicule;
 	}
+	
+	@Override
+	public void validate() {
+		if (categorieVehicule != null) {
+			if (categorieVehicule.getNomCategorie().isEmpty()) {
+				addActionError(getText("nomCat.vide"));
+			}else if (categorieVehicule.getPrixUnitaire() == null) {
+				addActionError(getText("prixUnitaire.vide"));
+			}else if (categorieVehicule.getPrixKM() == null) {
+				addActionError(getText("prixKM.vide"));
+			}
+		}else {
+			addActionError(getText("main.catVehiculeNull"));
+		}
+	}
 }

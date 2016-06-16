@@ -65,13 +65,13 @@
 							<td><s:property value="NbVelosDispo" /></td>
 							<td><s:property value="placesLibres" /></td>
 							<td><s:url action="gerer-location" var="urlText">
-									<s:param name="action" value="'louer'"/>
+									<s:param name="stationId" value="id"/>
 								</s:url> <a class="btn btn-success btn-xs btn-block"
-								href="<s:property value="urlText" />">Louer</a></td>
+								href="<s:property value="urlText"/>&action=louer" >Louer</a></td>
 							<td><s:url action="gerer-location" var="urlText2">
-									<s:param name="action" value="'rendre'"/>
+									<s:param name="stationId" value="id"/>
 								</s:url> <a class="btn btn-info btn-xs btn-block"
-								href="<s:property value="urlText2"/>">Rendre</a></td>
+								href="<s:property value="urlText2"/>&action=rendre"">Rendre</a></td>
 						</tr>
 					</s:iterator>
 				</table>

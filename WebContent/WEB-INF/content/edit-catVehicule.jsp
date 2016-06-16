@@ -32,6 +32,7 @@
 						<nav>
 						<ul class="nav masthead-nav">
 							<li><a href="./">Home</a></li>
+							<li><a href="<s:url action="list-stations"/>">Stations</a></li>
 							<li class="active"><a
 								href="<s:url action="list-cat-vehicules"/>">Catégories
 									véhicules</a></li>
@@ -48,33 +49,36 @@
 				</div>
 				<div class="row" style="text-align: right;">
 					<div class="col-md-12">
-							<s:form action="save-cat-vehicule" class="form-horizontal" style="margin: 0 auto; width: 50%">
-								<s:hidden name="categorieVehicule.id" />
-								<div class="form-group">
-									<s:textfield label="Nom de la catégorie"
-										name="categorieVehicule.nomCategorie" cssClass="form-control"
-										style="color:black;" id="nomCategorie" />
-								</div>
-								<div class="form-group">
-									<s:textfield label="Prix unitaire"
-										name="categorieVehicule.prixUnitaire" cssClass="form-control"
-										style="color:black;" id="prixUnitaire" />
-								</div>
-								<div class="form-group">
-									<s:textfield label="Prix par km"
-										name="categorieVehicule.prixKM" cssClass="form-control"
-										style="color:black;" id="prixKM" />
-								</div>
-								<div class="form-group">
-									<s:select label="Unité" name="categorieVehicule.Unite"
-										list="@entities.EnumUnite@values()" cssClass="form-control"
-										id="unite" />
-								</div>
-								<div class="form-group">
-									<s:submit value="Envoyer" name="submit"
-										cssClass="btn btn-success" />
-								</div>
-							</s:form>
+						<s:form action="save-cat-vehicule" class="form-horizontal"
+							style="margin: 0 auto; width: 50%">
+							<s:hidden name="categorieVehicule.id" />
+							<div class="form-group">
+								<s:textfield label="Nom de la catégorie"
+									name="categorieVehicule.nomCategorie" cssClass="form-control"
+									style="color:black;" id="nomCategorie" />
+							</div>
+							<s:if test="hasActionErrors()">
+							<div class="alert alert-warning" style="color:red;"><s:actionerror /></div>
+							</s:if>
+							<div class="form-group">
+								<s:textfield label="Prix unitaire"
+									name="categorieVehicule.prixUnitaire" cssClass="form-control"
+									style="color:black;" id="prixUnitaire" />
+							</div>
+							<div class="form-group">
+								<s:textfield label="Prix par km" name="categorieVehicule.prixKM"
+									cssClass="form-control" style="color:black;" id="prixKM" />
+							</div>
+							<div class="form-group">
+								<s:select label="Unité" name="categorieVehicule.Unite"
+									list="@entities.EnumUnite@values()" cssClass="form-control"
+									id="unite" />
+							</div>
+							<div class="form-group">
+								<s:submit value="Envoyer" name="submit"
+									cssClass="btn btn-success" />
+							</div>
+						</s:form>
 					</div>
 				</div>
 
